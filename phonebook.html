@@ -1,0 +1,100 @@
+<!Doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<style type="text/css">
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+ }
+  body{
+  	margin-left: 5em;
+  }
+</style>
+
+
+</head>
+
+
+<body ng-app="phoneApp" ng-controller="myPhoneCtr">
+
+
+<div><h2>Basic Phone Book App with AngularJS</h2> </div>
+
+
+<table ng-repeat="x in EmptList" ng-click="BindSelectedData(x)">
+	<thead>
+	<tr>
+		<th>{{x.Name}}</th>
+	</tr>
+	<tr>
+		<td>{{x.Phone1}}</td>
+	</tr>
+	<tr>
+		<td>{{x.Phone2}}</td>
+	</tr>
+	<tr>
+		<td>{{x.Phone3}}</td>
+	</tr>
+	<tr>
+		<td>{{x.Email}}</td>
+	</tr>
+	<tr>
+		<td><input type="button" value="Delete" ng-click="RemoveItem(x)" ></td>
+	</tr>
+</table><br>
+
+</div>
+<div></div>
+<form name="Form" >
+<table>
+	<thead>
+	<tr>
+		<td><input type="text" name="name"  placeholder="Enter Name" ng-model="contact.Name" autofocus required >
+		<span ng-show="Form.name.$error.required"></span></td>
+		
+	</tr>
+	</thead>
+	<tr>
+		<td><input type="number" name="phone1" placeholder="Enter Phone Number 1"
+			 ng-model="contact.Phone1" 
+			 ng-minlength="10" ng-maxlength="10"
+			 
+			 autofocus required>
+		<span ng-show="Form.name.$error.required"></span>
+		<span ng-show="Form.name.$error.minlength">phone should be 10 digits</span>
+		<span ng-show="Form.name.$error.maxlength">phone should not be more than 10 digits</span>
+	 </td>
+	</tr>
+			<tr>
+				<td><input type="number" placeholder="Enter Phone Number2"  ng-model="contact.Phone2"autofocus required></td>
+			</tr>
+
+			<tr>
+				<td><input type="number" placeholder="Enter Phone  Number3"  ng-model="contact.Phone3"autofocus ></td>
+			</tr>
+
+			<tr>
+				<td><input type="email" placeholder="example@email.com"   name="email"  ng-model="contact.Email" required><span ng-show="Form.email.$error.required"></span></td>
+
+			</tr>
+				<tr>
+
+				</tr>
+			<tr>
+
+				<td><input type="button"  value="Save" ng-click="SaveContact()" name="SaveMe" ></td>
+			</tr>
+</table>
+</form>
+
+</div>
+			<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+			<script type="text/javascript" src="phonebook.js"></script>
+
+</body>
+</html>
