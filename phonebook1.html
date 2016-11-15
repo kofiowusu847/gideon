@@ -1,0 +1,113 @@
+<!Doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+<style type="text/css">
+
+
+  body{
+  	margin-left: 25%;
+
+  }
+  .form-group{
+  	width: 300px;
+  }
+  table{
+  	font-size: 20px;
+  }
+  
+</style>
+
+
+</head>
+
+
+<body ng-app="phoneApp" ng-controller="myPhoneCtr">
+
+
+<div><h2>Basic Phone Book App with AngularJS</h2> </div>
+
+
+<table ng-repeat="x in EmptList" ng-click="BindSelectedData(x)">
+	<thead>
+		<tr>
+		<th>{{x.Id}}</th>
+	   </tr>
+	<tr>
+		<th>{{x.Name}}</th>
+	</tr>
+	<tr>
+		<td>{{x.Phone1}}</td>
+	</tr>
+	<tr>
+		<td>{{x.Phone2}}</td>
+	</tr>
+	<tr>
+		<td>{{x.Phone3}}</td>
+	</tr>
+	<tr>
+		<td>{{x.Email}}</td>
+	</tr>
+	<tr>
+		<td><input type="button" class="btn btn-default" value="Delete" ng-click="RemoveItem(x)" ></td>
+		
+
+	</tr>
+</table><br>
+
+</div>
+
+
+
+
+
+
+
+<div class=" container">
+
+<form class="form-horizontal">
+ <div class ="form-group">
+		  <label>Name</label>
+		  <input type="text" name="name" class="form-control"  placeholder="Enter Name" ng-model="contact_Name" autofocus required >
+ </div>
+ <div class ="form-group" >
+  <label>Home Phone</label>
+  <input type="tel" name="phone1"  class="form-control" placeholder="Enter Phone Number 1"
+			 ng-model="contact_Phone1" 
+			 ng-minlength="10" ng-maxlength="10"
+			 
+			 autofocus required>
+ </div>
+
+ <div class ="form-group">
+		  <label>Mobile Phone</label>
+		  <input type="tel" class="form-control" placeholder="Enter Phone Number2"  ng-model="contact_Phone2"autofocus required>
+ </div>
+ <div class ="form-group">
+		  <label>Work Phone</label>
+		  <input type="tel"  class="form-control" placeholder="Enter Phone  Number3"  ng-model="contact_Phone3"autofocus >
+ </div>
+
+ <div class ="form-group" >
+  <label>Email</label>
+  <input type="email"  class="form-control"  placeholder="example@email.com"   name="email"  ng-model="contact_Email" required><span ng-show="Form.email.$error.required">
+</div>
+
+<div>
+   
+   <input type="button" class="btn btn-default" value="Save" ng-click="SaveContact()" name="SaveMe" >
+
+</div>
+
+</form>
+
+</div>
+
+
+			<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+			<script type="text/javascript" src="phonebook.js"></script>
+
+</body>
+</html>
